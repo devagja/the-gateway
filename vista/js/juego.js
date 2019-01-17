@@ -36,6 +36,10 @@ SALIR JUEGO
         }
         if (tecla.keyCode == 32) {
             datos.disparo = true;
+            /* setTimeout(() => {
+               datos.disparo = false;
+
+             }, 300);*/
         }
     },
 
@@ -466,26 +470,27 @@ SALIR JUEGO
             if (colisionMail()) { //hacer que el sprite del muñeco parpadee
                 datos.posMails[i].y += -500;
 
-                if (datos.vidas < 0) {
-                    if (datos.vidas % 2 == 0) {
-                        document.getElementById("vida" + datos.vidas / 2).src = "vista/img/interfaz/vidas-rotas.png";
-                        //  document.querySelector("#vidas ul li:nth-child(" + datos.vidas / 2 + ")").innerHTML = " ";
-                    } else {
-                        //  document.querySelector("#vidas ul li:nth-child(" + Math.trunc(datos.vidas / 2) + 1 + ")").src = "vista\img\interfaz\vidas-empty.png";
-                        document.getElementById("vida" + (Math.trunc(datos.vidas / 2) + 1)).src = "vista/img/interfaz/vidas-empty.png";
-                    }
+
+                if (datos.vidas % 2 == 0) {
+                    document.getElementById("vida" + datos.vidas / 2).src = "vista/img/interfaz/vidas-rotas.png";
+                    //  document.querySelector("#vidas ul li:nth-child(" + datos.vidas / 2 + ")").innerHTML = " ";
+                } else {
+                    //  document.querySelector("#vidas ul li:nth-child(" + Math.trunc(datos.vidas / 2) + 1 + ")").src = "vista\img\interfaz\vidas-empty.png";
+                    document.getElementById("vida" + (Math.trunc(datos.vidas / 2) + 1)).src = "vista/img/interfaz/vidas-empty.png";
                 }
                 datos.vidas--;
-
                 if (datos.vidas == 0) {
                     datos.reset = true;
                 }
-                m = i;
-                setTimeout(function () {
-                    datos.posMails[m].y += 500;
-                    datos.posMails[m].x = -500;
-                }, 500)
 
+                m = i;
+                if (!datos.reset) {
+
+                    setTimeout(function () {
+                        datos.posMails[m].y += 500;
+                        datos.posMails[m].x = -500;
+                    }, 1000)
+                }
             }
         }
 
@@ -495,6 +500,7 @@ SALIR JUEGO
         if (datos.disparo) {
             datos.movDisparoJugador = 0;
             datos.disparo_y = datos.jugador_y + 7;
+            datos.disparoDer = true;
 
             if (datos.izquierda) {
                 datos.disparoIzq = true;
@@ -507,13 +513,15 @@ SALIR JUEGO
             }
         }
         if (datos.disparoIzq) {
-            datos.disparo_x = datos.jugador_x + datos.movDisparoJugador;
+
             datos.movDisparoJugador -= datos.velocidadDisparoJugador
+            datos.disparo_x = datos.jugador_x + datos.movDisparoJugador;
 
         }
         if (datos.disparoDer) {
-            datos.disparo_x = datos.jugador_x + datos.movDisparoJugador;
+
             datos.movDisparoJugador += datos.velocidadDisparoJugador
+            datos.disparo_x = datos.jugador_x + datos.movDisparoJugador;
 
         }
 
@@ -542,15 +550,17 @@ SALIR JUEGO
                 return true;
             }
 
-            if (colisionDisparoMail()) { //hacer que el sprite del muñeco parpadee
+            if (colisionDisparoMail()) {
                 datos.disparo_y += -500;
                 datos.posMails[i].y += -500;
                 m = i;
 
-                setTimeout(function () {
-                    datos.posMails[m].y += 500;
-                    datos.posMails[m].x = -500;
-                }, 500)
+                if (!datos.reset) {
+                    setTimeout(function () {
+                        datos.posMails[m].y += 500;
+                        datos.posMails[m].x = -500;
+                    }, 1000)
+                }
 
             }
         }
@@ -725,7 +735,7 @@ SALIR JUEGO
 
             datos.puntuacion = datos.contadorMonedas + (17 * datos.vidas);
 
-            if (datos.vidas <= 2) {
+            if (datos.vidas >= 2) {
 
                 document.getElementById("vida1f").src = "vista/img/interfaz/vidas.png";
             } else {
@@ -733,7 +743,7 @@ SALIR JUEGO
             }
 
 
-            if (datos.vidas <= 4) {
+            if (datos.vidas >= 4) {
 
                 document.getElementById("vida2f").src = "vista/img/interfaz/vidas.png";
             } else if (datos.vidas == 3) {

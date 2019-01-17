@@ -80,7 +80,7 @@ var datos = {
     disparoDer: false,
     disparoIzq:false,
     movDisparoJugador: 0,
-    velocidadDisparoJugador: 5,
+    velocidadDisparoJugador: 20,
 
     contadorMonedas:0,
     vidas:6,

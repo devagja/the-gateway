@@ -27,8 +27,8 @@ var lienzo = {
         }
 
         ctx.drawImage(datos.plano2, datos.desplazamientoEscenario, 0, datos.plano2.naturalWidth, datos.plano2.naturalHeight);
-
-
+ /* HABILITAR PARA PRUEBAS DE COLISION */
+/*
         for (var i = 0; i < datos.plataforma.length; i++) {
             ctx.fillStyle = "rgba(225,0,0,0.5)";
             ctx.fillRect(datos.plataforma[i].x, datos.plataforma[i].y, datos.plataforma[i].ancho, datos.plataforma[i].alto);
@@ -42,15 +42,12 @@ var lienzo = {
         ctx.fillStyle = "rgba(225,255,0,0.5)";
         ctx.fillRect(datos.jugador_x, datos.jugador_y, datos.jugador_ancho, datos.jugador_alto);
 
-
+*/
         /*==============================
         TRAMPAS
         ==============================*/
         ctx.drawImage(datos.trampas, datos.desplazamientoEscenario, 0, datos.trampas.naturalWidth, datos.trampas.naturalHeight);
-        /*
-        for (var i = 0; i < datos.posTrampas.length; i++) {
-            ctx.drawImage(datos.imgTrampas, datos.sprite_x, 0, 100, 100, datos.posTrampas[i].x, datos.posTrampas[i].y, datos.posTrampas[i].ancho, datos.posTrampas[i].alto);
-        }*/
+     
 
         /*==============================
         MONEDAS

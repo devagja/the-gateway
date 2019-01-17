@@ -466,13 +466,14 @@ SALIR JUEGO
             if (colisionMail()) { //hacer que el sprite del muñeco parpadee
                 datos.posMails[i].y += -500;
 
-
-                if (datos.vidas % 2 == 0) {
-                    document.getElementById("vida" + datos.vidas / 2).src = "vista/img/interfaz/vidas-rotas.png";
-                    //  document.querySelector("#vidas ul li:nth-child(" + datos.vidas / 2 + ")").innerHTML = " ";
-                } else {
-                    //  document.querySelector("#vidas ul li:nth-child(" + Math.trunc(datos.vidas / 2) + 1 + ")").src = "vista\img\interfaz\vidas-empty.png";
-                    document.getElementById("vida" + (Math.trunc(datos.vidas / 2) + 1)).src = "vista/img/interfaz/vidas-empty.png";
+                if (datos.vidas < 0) {
+                    if (datos.vidas % 2 == 0) {
+                        document.getElementById("vida" + datos.vidas / 2).src = "vista/img/interfaz/vidas-rotas.png";
+                        //  document.querySelector("#vidas ul li:nth-child(" + datos.vidas / 2 + ")").innerHTML = " ";
+                    } else {
+                        //  document.querySelector("#vidas ul li:nth-child(" + Math.trunc(datos.vidas / 2) + 1 + ")").src = "vista\img\interfaz\vidas-empty.png";
+                        document.getElementById("vida" + (Math.trunc(datos.vidas / 2) + 1)).src = "vista/img/interfaz/vidas-empty.png";
+                    }
                 }
                 datos.vidas--;
 
@@ -631,7 +632,7 @@ SALIR JUEGO
             ==============================*/
 
             var xhr_plataforma = new XMLHttpRequest();
-            xhr_plataforma.open("GET", "vista/js/json/lvl"+datos.nivel+"/lvl" + datos.nivel + "_plataforma.json", true);
+            xhr_plataforma.open("GET", "vista/js/json/lvl" + datos.nivel + "/lvl" + datos.nivel + "_plataforma.json", true);
 
 
             xhr_plataforma.send();
@@ -646,7 +647,7 @@ SALIR JUEGO
                 RESET MONEDAS
             ==============================*/
             var xhr_monedas = new XMLHttpRequest();
-            xhr_monedas.open("GET", "vista/js/json/lvl"+datos.nivel+"/lvl" + datos.nivel + "_monedas.json", true);
+            xhr_monedas.open("GET", "vista/js/json/lvl" + datos.nivel + "/lvl" + datos.nivel + "_monedas.json", true);
 
             xhr_monedas.send();
 
@@ -670,7 +671,7 @@ SALIR JUEGO
             datos.trampas.src = "vista/img/nivel" + datos.nivel + "/plano1.png";
 
             var xhr_trampas = new XMLHttpRequest();
-            xhr_trampas.open("GET", "vista/js/json/lvl"+datos.nivel+"/lvl" + datos.nivel + "_trampas.json", true);
+            xhr_trampas.open("GET", "vista/js/json/lvl" + datos.nivel + "/lvl" + datos.nivel + "_trampas.json", true);
 
 
             xhr_trampas.send();
@@ -690,7 +691,7 @@ SALIR JUEGO
             datos.imgMail.src = "vista/img/objetos/mail.png";
 
             var xhr_mailboxes = new XMLHttpRequest();
-            xhr_mailboxes.open("GET", "vista/js/json/lvl"+datos.nivel+"/lvl" + datos.nivel + "_mailboxes.json", true);
+            xhr_mailboxes.open("GET", "vista/js/json/lvl" + datos.nivel + "/lvl" + datos.nivel + "_mailboxes.json", true);
 
 
             xhr_mailboxes.send();

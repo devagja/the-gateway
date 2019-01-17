@@ -1,0 +1,531 @@
+/* EVITA MARGENES ESTILOS DE LISTA Y DECORACION EN LOS TEXTOS */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+/* POSICION RELATIVA CON COLOR Y QUE NO SE PUEDA HACER SCROLL */
+body {
+	position: relative;
+	background-color: #003F72;
+	overflow: hidden;
+}
+
+/*==============================
+		MARCO
+==============================*/
+
+/* POSICION ABSOLUTA CON ALTO Y ANCHO ESTABLECIDO */
+#marco {
+	position: absolute;
+	width: 1127px;
+	height: 660px;
+
+	/* BORDES REDONDOS */
+	border-radius: 10px 10px 0 0;
+	/* SOMBRA TRAS EL MARCO */
+	box-shadow: 0px 5px 10px black;
+	/* COLOR FONDO*/
+	background: #172025;
+	/* SEPARA DEL BORDE SUPERIOR */
+	top: -30px;
+	/* SE DIBUJE EL EL CENTRO DEL CONTENEDOR MENOS LA MITAD DEL ANCHO */
+	left: 50%;
+	margin-left: -563px;
+}
+
+/*==============================
+		CONTENEDOR
+==============================*/
+
+/* POSICION RELATIVA CON ALTO Y ANCHO ESTABLECIDO */
+#contenedor {
+	position: relative;
+	/* MARGEN AUTOMATICO DE 5 % RESPECTO AL VIEWPORT*/
+	margin: 5vh auto;
+	width: 1067px;
+	height: 600px;
+	background: white;
+}
+
+/*==============================
+		INGRESO
+==============================*/
+
+/* POSICION ABSOLUTE CON ALTO Y ANCHO ESTABLECIDO */
+#contenedor #ingreso {
+	position: absolute;
+	width: 1067px;
+	height: 600px;
+	background: url(../img/intro/ingreso.png);
+	/* ELIMINA ALGUN MARGEN EXISTENTE */
+	top: 0;
+	left: 0px;
+}
+
+/* POSICION ABSOLUTE CON ALTO Y ANCHO ESTABLECIDO */
+#contenedor #ingreso #ingresoFacebook {
+	position: absolute;
+	width: 300px;
+	top: 450px;
+	left: 50%;
+	margin-left: -150px;
+	/* CAMBIAR EL CURSOR A UNA MANO */
+	cursor: pointer;
+}
+
+#contenedor #ingreso #ingresoFacebook img {
+	width: 50px;
+	height: 50px;
+	/* FLOTA HACIA LA IZQUIERDA DEL DIV */
+	float: left;
+}
+
+#contenedor #ingreso #ingresoFacebook button {
+	width: 249px;
+	height: 50px;
+	margin-left: 1px;
+	border: 0;
+	background: #3B5998;
+	color: white;
+}
+
+/*==============================
+		INICIO
+==============================*/
+
+#contenedor #inicio {
+	position: absolute;
+	width: 1067px;
+	height: 600px;
+	top: 0px;
+	left: 0px;
+	background: url(../img/intro/inicio.svg);
+	font-family: 'MrRobot';
+}
+
+#contenedor #inicio #cerrarSesion a {
+	position: absolute;
+	right: 0%;
+	text-align: center;
+	color: white;
+	top: -25px;
+}
+
+#contenedor #inicio #saludo {
+	position: absolute;
+	left: 50%;
+	width: 1067px;
+	text-align: center;
+	margin-left: -533px;
+	color: white;
+}
+
+#contenedor #inicio .niveles {
+	float: left;
+	position: relative;
+	width: 33.33%;
+	height: 300px;
+	margin-top: 200px;
+	text-align: center;
+}
+
+#contenedor #inicio .niveles .puntaje {
+	position: absolute;
+	top: -120px;
+	left: 50%;
+	width: 100%;
+	margin-left: -50%;
+	color: white;
+	font-size: 20px;
+	font-family: 'MrRobot';
+}
+
+#contenedor #inicio .niveles button {
+	display: block;
+	width: 100px;
+	margin: 10px 0;
+	padding: 10px;
+	border: 0;
+	background: #131C17;
+	color: white;
+	font-size: 20px;
+	border-radius: 10px 0 10px 0;
+	font-family: 'MrRobot';
+	cursor: pointer;
+}
+
+#contenedor #inicio .niveles button:hover {
+	width: 120px;
+	margin: 15px 0;
+	transition: all .1s;
+}
+
+#contenedor #inicio .niveles button:active {
+
+	background: green;
+}
+
+#contenedor #inicio .niveles .puntajes {
+
+	background: rgb(0, 0, 0, .8);
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	color: yellow;
+}
+
+#contenedor #inicio .niveles .puntajes ul li {
+	display: inline-block;
+	width: 30%;
+	margin: 10px;
+}
+
+#contenedor #inicio .niveles .puntajes ul li img {
+	border-radius: 100%;
+	width: 30%;
+
+}
+
+#contenedor #inicio .niveles .puntajes ul li h3 {
+	font-weight: 100;
+	color: white;
+}
+
+#contenedor #inicio .niveles .puntajes ul li h2 {
+	font-weight: 100;
+}
+
+/*==============================
+		CANVAS
+==============================*/
+#contenedor #lienzo {
+	display: none;
+}
+
+#btnAmpliar {
+	display: none;
+	position: relative;
+	width: 150px;
+	padding: 10px 5px;
+	background: green;
+	color: white;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 0px 0px 10px 10px;
+	cursor: pointer;
+	font-family: 'MrRobot';
+}
+
+
+/*==============================
+		TABLERO
+==============================*/
+#contenedor #tablero {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1067px;
+	height: 60px;
+	background: rgb(0, 0, 0, .5);
+	font-family: "MrRobot";
+}
+
+/*==============================
+		VIDAS
+==============================*/
+#contenedor #tablero #vidas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 220px;
+	height: 70px;
+	color: white;
+	font-size: 20px;
+}
+
+#contenedor #tablero #vidas p {
+	float: left;
+	line-height: 60px;
+	padding-left: 10px;
+	width: 50px;
+	font-weight: bold;
+}
+
+#contenedor #tablero #vidas ul {
+	float: left;
+	width: 140px;
+	height: 70px;
+	margin-left: 10px;
+}
+
+#contenedor #tablero #vidas ul li {
+	margin: 8px 2px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	line-height: 40px;
+	background: rgba(255, 255, 255, .5);
+	text-align: center;
+}
+
+#contenedor #tablero #vidas ul img {
+	padding-top: 7px;
+	width: 60%;
+}
+
+/*==============================
+		MONEDAS
+==============================*/
+#contenedor #tablero #monedas {
+	position: absolute;
+	top: 0px;
+	left: 560px;
+	width: 200px;
+	height: 60px;
+	color: white;
+	font-size: 20px;
+}
+
+#contenedor #tablero #monedas p {
+	float: left;
+	line-height: 60px;
+	padding-left: 20px;
+	width: 50px;
+	font-weight: bold;
+}
+
+#contenedor #tablero #monedas span {
+	float: left;
+	line-height: 60px;
+	padding-left: 30px;
+	font-weight: bold;
+}
+
+#spriteMoneda {
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	width: 25px;
+	height: 25px;
+	background-image: url(../img/objetos/moneda.png);
+	background-position: 0px;
+	background-size: cover;
+
+}
+
+/*==============================
+		SONIDO
+==============================*/
+#contenedor #tablero #sonido {
+	position: absolute;
+	top: 0px;
+	right: 80px;
+	width: 150px;
+	height: 70px;
+	color: white;
+	font-size: 20px;
+
+}
+
+#contenedor #tablero #sonido p {
+	float: left;
+	line-height: 60px;
+	padding-left: 5px;
+	width: 50px;
+	font-weight: bold;
+}
+
+#contenedor #tablero #sonido ul {
+	float: left;
+	width: 65px;
+	height: 70px;
+	margin-left: 30px;
+}
+
+#contenedor #tablero #sonido ul li {
+	float: left;
+	width: 8px;
+	height: 20px;
+	background: white;
+	margin: 19px 3px;
+	cursor: pointer;
+}
+
+#contenedor #tablero #sonido ul li:first-child {
+
+	height: 7px;
+	margin-top: 32px;
+}
+
+#contenedor #tablero #sonido ul li:nth-child(2) {
+
+	height: 14px;
+	margin-top: 25px;
+}
+
+
+/*==============================
+		SALIDA
+==============================*/
+#salida {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 80px;
+	height: 70px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+
+#contenedor #tablero #salida button {
+	width: 50px;
+	font-weight: bold;
+	border: 0;
+	margin-top: 15px;
+	padding: 5px;
+	background: black;
+	color: white;
+	font-family: "MrRobot";
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+
+/*==============================
+		FINAL
+==============================*/
+#contenedor #final {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1067px;
+	height: 600px;
+	z-index: 1;
+	background: rgba(0, 0, 0, .9);
+	font-family: 'MrRobot';
+	color: white;
+}
+
+#contenedor #final h1 {
+	margin-top: 2%;
+	text-align: center;
+	font-size: 55px;
+}
+
+#contenedor #final ul {
+	position: absolute;
+	width: 80%;
+	height: 200px;
+	top: 50%;
+	left: 10%;
+}
+
+#contenedor #final ul li {
+	float: left;
+	padding: 20px 0;
+	width: 30%;
+	height: 70px;
+	margin: 0px 1%;
+	text-align: center;
+	font-size: 20px;
+	background: rgba(100, 0, 0, .5);
+	border-radius: 20px;
+}
+
+#contenedor #final #spriteMonedaFinal {
+	position: relative;
+	left: 50%;
+	margin-left: -40px;
+	width: 80px;
+	height: 80px;
+	background-image: url(../img/objetos/moneda.png);
+	background-position: 0px;
+	background-size: cover;
+}
+
+#contenedor #final #ul li ol li {
+	background: rgba(0, 0, 0, 0);
+	height: 45px;
+}
+
+#contenedor #final #ul li ol li img {
+	width: 10%;
+}
+
+/*==============================
+		PRELOAD
+==============================*/
+
+#contenedor #carga {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1067px;
+	height: 600px;
+	background: black;
+	text-align: center;
+	font-size: 40px;
+	color: white;
+	opacity: 1;
+	transition: opacity 1s ease;
+	font-family: "MrRobot";
+
+}
+
+#contenedor #carga #preload {
+	padding-top: 17%;
+}
+
+/*==============================
+		CREDITOS
+==============================*/
+
+/* POSICION RELATIVA CON MARGEN INTERNO */
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+		padding: 8px;
+	color: rgba(255, 255, 255, .5);
+	/* TIPOGRAFIA */
+	font-family: sans-serif;
+	/* TAMAÑO TIPOGRAFIA */
+	font-size: 12px;
+}
+
+footer a {
+	color: white;
+}
+
+/***********************************/
+#vertical {
+	display: none;
+}
+
+/* MUESTRA EL AVISO DE JUGAR EN HORIZONTAL */
+@media all and (orientation: portrait) {
+
+	#contenedor {
+		/* ESCONDE EL CONTENEDOR */
+		display: none;
+	}
+
+	#vertical {
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		z-index: 1;
+		background: url(../img/vertical.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+}

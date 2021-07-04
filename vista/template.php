@@ -60,7 +60,7 @@
     <footer>
 
         <center>
-            <p>Juego desarrollado por Jose Antonio Aguilar Granados | <a href="linkedin" target="_blank">linkedin</a></p>
+            <p>Juego desarrollado por Jose Antonio Aguilar Granados | <a href="https://www.linkedin.com/in/jose-antonio-aguilar-granados" target="_blank">linkedin</a></p>
         </center>
 
     </footer>
